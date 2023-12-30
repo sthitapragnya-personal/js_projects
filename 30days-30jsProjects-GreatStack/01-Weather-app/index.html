@@ -9,15 +9,105 @@
     <title>Document</title>
 </head>
 <body>
+   <div class="main">
     <div class="card">
         <div class="search">
-            <input type="text" placeholder="enter city name" spellcheck="false">
-            <button>
+            <input type="text" placeholder="Enter City Name" spellcheck="false" class="search input">
+            <button class="search button">
                 <!-- <img src="images/search.png" alt=""> -->
                 <i class="fas fa-search"></i>
             </button>
         </div>
+        <!-- ----------------------------------------- -->
+        <div class="weather">
+            <img class="weatherimg" src="images/clear.png" alt="">
+            <h1 class="temp">
+                22°c
+            </h1>
+            <h2 class="cityname">
+                Bengaluru
+            </h2>
+        </div>
+        <!-- ------------------------ -->
+        <div class="extradetails">
+            <div class="col1">
+                <img src="images/humidity.png" alt="">
+                <div>
+                    <p class="humidity">90%</p>
+                    <p>humidity</p>
+                </div>
+            </div>
+            <div class="col2">
+                <img src="images/wind.png" alt="">
+                <div>
+                    <p class="windspeed">15 km/h</p>
+                    <p>wind speed</p>
+                </div>
+            </div>
+        </div>
     </div>
+   </div>
     
 </body>
+<script>
+    //note : remove the apikey from the apiUrl and paste it inside the apikey variable
+    const apikey="b562815a840cf00732c30bcd70f9baa8";
+    // note : also remove the apikey , and add the city at the last of the apiUrl
+    const apiUrl="https://api.openweathermap.org/data/2.5/weather?units=metric";
+    const searchinput=document.querySelector(".search input")
+    const searchbutton=document.querySelector(".search button")
+
+
+    async function checkweather(city){
+        const response=await fetch(apiUrl+`&appid=${apikey}&q=${city}`);
+        // const response=await fetch("https://api.openweathermap.org/data/2.5/weather?q=bengaluru&appid=b562815a840cf00732c30bcd70f9baa8&units=metric");
+        let data=await response.json();
+        console.log(data);
+        document.querySelector(".cityname").innerHTML=data.name
+        document.querySelector(".temp").innerHTML=Math.round(data.main.temp)+"°c"
+        document.querySelector(".humidity").innerHTML=data.main.humidity+"%"
+        document.querySelector(".windspeed").innerHTML=data.wind.speed+" km/h"
+    }
+
+
+    searchbutton.addEventListener('click',function(e){
+        checkweather(searchinput.value);// here the async function is called -> // the .value gives the value of a thing present inside the element or tag -> the searchinput.value is the city value that we are intrested to search about
+
+
+    
+    // now we will update the weatherimg according to the weather
+    //------------------------------------------------
+    const weatherimg=document.querySelector(".weatherimg")
+    if (data.weather[0].main=="Clouds") {
+        weatherimg.src="images/clouds.png"
+    }
+    else if(data.weather[0].main=="Clear") {
+        weatherimg.src="images/clear.png"
+    }
+    else if(data.weather[0].main=="Rain") {
+        weatherimg.src="images/rain.png"
+    }
+    else if(data.weather[0].main=="Drizzle") {
+        weatherimg.src="images/drizzle.png"
+    }
+    else if(data.weather[0].main=="Mist") {
+        weatherimg.src="images/mist.png"
+    }
+    else if(data.weather[0].main=="Snow") {
+        weatherimg.src="images/snow.png"
+    }
+    else{
+
+    }
+    })
+    
+
+
+    
+</script>
 </html>
+
+
+
+
+<!-- the weatherimg is not working that is it is not changing from place to place -->
