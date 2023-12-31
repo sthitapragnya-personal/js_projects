@@ -1,0 +1,84 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body {
+    background: #ff00cc;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.container{
+    background-color: #fffdf4;
+    width: 40%;
+    margin: 100px auto;
+
+}
+.card{
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    background-color: #fffdf4;
+    padding-bottom: 100px;
+}
+.heading{
+    display: flex;
+    justify-content: start;
+    padding-top: 20px;
+    padding-left: 20px;
+
+}
+.heading img{
+    height: 35px;
+    width: 35px;
+    margin-left: 5px;
+}
+.addtask{
+    background-color: lightgray;
+    margin-top: 20px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    border-radius: 50px;
+
+}
+.text{
+    background-color: lightgray;
+    border: none;
+    outline: none;
+    margin-left: 30px;
+}
+.addbutton{
+    height: 100%;
+    outline: none;
+    border: none;
+    background-color: orangered;
+    color: white;
+    width: 30%;
+    text-align: center;
+    border-radius: 50px;
+}
+.list{
+    background-color: #ff00cc;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.list-container li{
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+}
+.list-container li::before{
+    
+}
