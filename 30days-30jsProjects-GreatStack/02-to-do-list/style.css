@@ -65,20 +65,35 @@ background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, F
     text-align: center;
     border-radius: 50px;
 }
-.list{
-    background-color: #ff00cc;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-
-}
 .list-container li{
+    
     list-style: none;
     font-size: 17px;
     padding: 12px 8px 12px 50px;
     user-select: none;
     cursor: pointer;
-}
-.list-container li::before{
+    list-style-position: inside;
+    position: relative;
     
 }
+.list-container li::before{
+    content:'';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url("images/unchecked.png");
+    background-size: cover;
+    background-position: center;
+    top: 8px;
+    left: 15px;
+}
+.list-container li.checked{
+    color: #555;
+    text-decoration: line-through;
+
+}
+.list-container li.checked::before{
+    background-image: url("images/checked.png");
+}
+/* next we need to style the cross symbol and note: we need to master the psotion property  */
