@@ -96,4 +96,17 @@ background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, F
 .list-container li.checked::before{
     background-image: url("images/checked.png");
 }
-/* next we need to style the cross symbol and note: we need to master the psotion property  */
+/* next we need to style the cross symbol and note: we need to master the position property  */
+.crossbutton{
+    position: absolute;
+    right: 40px;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+}
+.crossbutton:hover{
+    background-color: #edeef0;
+}
